@@ -1,24 +1,49 @@
-# README
+# AADS Test Assignment
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This web application is a test assignment for AADS, developed using Ruby on Rails 7. It features user registration, subscription functionality, and a commenting system for posts.
 
-Things you may want to cover:
+## Project Description
 
-* Ruby version
+The application allows users to:
 
-* System dependencies
+- **Register and Authenticate**: Users can sign up and log in using Devise 4.9 for authentication.
+- **Create Posts**: Users can create text-based posts that are visible to others.
+- **Follow Other Users**: Users can subscribe to other users to see their posts in a chronological feed.
+- **Comment on Posts**: Users can comment on posts. Comments can also be replies to other comments, creating a tree structure for discussions.
 
-* Configuration
+## Technologies Used
 
-* Database creation
+- **Ruby on Rails**: Version 7
+- **Database**: PostgreSQL
+- **Authentication**: Devise 4.9
 
-* Database initialization
+## Setup Instructions
 
-* How to run the test suite
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/littleAvel/aads_test_project.git
+   cd aads_test_project
+2. **Install Dependencies:**
+    ```bash
+    bundle install
+3. **Create and set up the database**
+    ```bash
+    rails db:create
+    rails db:migrate
+2. **Run Seeds:**
+    ```bash
+    rails db:seed
+3. **Run the Application:**
+    ```bash
+    rails server
 
-* Services (job queues, cache servers, search engines, etc.)
+## Demo
 
-* Deployment instructions
+You can see the application in action in the following video:
 
-* ...
+https://github.com/user-attachments/assets/3bd8e097-9307-4654-ae0b-a670dc8d0504
+
+
+
+
+
