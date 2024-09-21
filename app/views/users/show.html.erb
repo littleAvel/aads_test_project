@@ -1,0 +1,23 @@
+<h1><%= @user == current_user ? "My" : "User" %> Profile</h1>
+<div>
+  <%= render "users/user", user: @user %>
+</div>
+
+<br/>
+
+<div>
+  <p>
+    Followers: <%= @user.followers.count %>
+    <small><%= link_to "Show all", followers_user_path(@user) %></small>
+  </p>
+  <p>
+    Following: <%= @user.followings.count %>
+    <small><%= link_to "Show all", followings_user_path(@user) %></small>
+  </p>
+</div>
+
+<br/>
+
+<div>
+  <%= link_to "#{@user == current_user ? 'My' : 'User'} Posts", user_posts_path(@user) %>
+</div>

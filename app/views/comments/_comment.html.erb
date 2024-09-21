@@ -1,0 +1,26 @@
+<li>
+  <!-- Display the comment content and the user who posted it -->
+  <p>
+    <strong><%= comment.user.name %></strong>: <small><%= time_ago_in_words(comment.created_at) %></small>
+    <p><%= comment.content %></p>
+  </p>
+  
+
+  <!-- Form to reply to this comment -->
+  <%= form_with(model: [comment.post.user, comment.post, Comment.new], local: true) do |form| %>
+    <div>
+      <%= form.hidden_field :parent_id, value: comment.id %> <!-- Set parent_id as this comment's ID -->
+      <%= form.text_area :content, placeholder: "Reply to this comment" %>
+    </div>
+    <div>
+      <%= form.submit "Reply" %>
+    </div>
+  <% end %>
+
+  <!-- Recursively render the replies to this comment -->
+  <% if comment.replies.any? %>
+    <ul>
+      <%= render partial: "comments/comment", collection: comment.replies %>
+    </ul>
+  <% end %>
+</li>

@@ -1,0 +1,22 @@
+<h2><%= @user.name %> is following</h2>
+
+<% if @followings.any? %>
+  <ul>
+    <% @followings.each do |following| %>
+      <li style="display: flex; align-items: center; gap: 10px;">
+        <span>
+          <%= link_to following.name, user_path(following) %>
+        </span>
+        <% if @user == current_user %>
+          <span>
+            <%= button_to "Unfollow", unfollow_user_path(following), method: :delete %>
+          </span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p><%= @user.name %> is not following anyone yet.</p>
+<% end %>
+
+<%= link_to "Back to Profile", user_path(@user) %>

@@ -1,0 +1,13 @@
+<h1><%= @user.name %>'s Posts</h1>
+
+<% if @user == current_user %>
+  <%= link_to "New Post", new_user_post_path(@user) %>
+<% end %>
+
+<br/><br/>
+
+<% if @posts.any? %>
+  <%= render @posts %>
+<% else %>
+  <p><%= @user == current_user ? "You haven't posted anything yet." : "#{@user.name} hasn't posted anything yet." %></p>
+<% end %>

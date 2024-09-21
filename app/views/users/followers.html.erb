@@ -1,0 +1,15 @@
+<h2>Followers of <%= @user.name %></h2>
+
+<% if @followers.any? %>
+  <ul>
+    <% @followers.each do |follower| %>
+      <li>
+        <%= link_to follower.name, user_path(follower) %> 
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No followers yet.</p>
+<% end %>
+
+<%= link_to "Back to Profile", user_path(@user) %>

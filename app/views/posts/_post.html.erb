@@ -1,0 +1,8 @@
+<div class="post">
+  <p>
+    <%= post.content.truncate(100) %>
+    <%= link_to "Show", user_post_path(post.user, post) %>
+    <p><small>Posted <%= time_ago_in_words(post.created_at) %></small></p>
+  </p>
+  <hr/>
+</div>

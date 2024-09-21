@@ -1,0 +1,30 @@
+<h1>Home</h1>
+
+<% if current_user %>
+  <p><%= link_to "My Profile", user_path(current_user) %></p>
+  <p><%= link_to "My Posts", user_posts_path(current_user) %></p>
+  <p><%= link_to "All Users", users_path %></p>
+<% else %>
+  <%= link_to "Log In", new_user_session_path %>
+  <%= link_to "Sign Up", new_user_registration_path %>
+<% end %>
+
+<br/>
+
+<% if current_user %>
+  <h2>Feed</h2>
+  <% if @posts.any? %>
+    <% @posts.each do |post| %>
+      <div class="post">
+        <p>Posted by <strong><%= post.user.name %></strong> <%= time_ago_in_words(post.created_at) %></p>
+        <p>
+          <%= post.content %>
+          <%= link_to "Show", user_post_path(post.user, post) %>
+        </p>
+        <hr>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No posts available.</p>
+  <% end %>
+<% end %>

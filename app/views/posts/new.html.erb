@@ -1,0 +1,8 @@
+<%= form_with(model: [current_user, Post.new], local: true) do |form| %>
+  <div>
+    <%= form.text_area :content, placeholder: "What's on your mind?" %>
+  </div>
+  <div>
+    <%= form.submit "Create a new post" %>
+  </div>
+<% end %>
